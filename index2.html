@@ -6,12 +6,44 @@
     <meta name="description" content="Exam1-andrea-arismendy : ">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <script type="text/javascript" src="javascripts/d3.js"></script>
 
     <title>Exam1-andrea-arismendy</title>
   </head>
   
   <body>
+    <!--Header-->
+    <div id="header">
+      <h1>Comparison of the number of IE senior students per university</h1>
+    </div>
   
+    <!--Graph-->
+    <div id="barChart">
+    
+    </div>
+    
+    <script type="text/javascript">
+      d3.json("http://hivelab.org/static/exam1.json",function(data){
+        var height=400;
+        var width=600;
+        var padding=5;
+        var labels=new Array();
+        
+        var svg=d3.select("#barChart").append(svg)
+                  .attr("height",height)
+                  .attr("width",width)
+                  .attr("class", "graph");
+               svg.selectAll("rect")
+                  .data(data)
+                  .enter()
+                  .append("rect")
+                  .attr("x",function(d,i){return i*100+padding})
+                  .attr("height",function(d){return d.Sophomore})
+                  .attr("y",function(d){return height-d.Sophomore-padding})
+                  .attr("fill","black")
+                  .attr("width",100);
+      });
+    </script>
   </body>
 
 </html>
