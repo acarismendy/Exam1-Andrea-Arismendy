@@ -61,7 +61,7 @@
                   
        }
          var yScale=d3.scale.linear();
-                    yScale.domain(410,0)
+                    yScale.domain([410,0])
                           .range([padding,height-padding-5]);
         var yAxis=d3.svg.axis()
                     .scale(yScale)
