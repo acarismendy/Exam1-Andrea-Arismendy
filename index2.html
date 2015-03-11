@@ -25,7 +25,7 @@
     <script type="text/javascript">
       d3.json("data.json",function(data){
         var height=400;
-        var width=1000;
+        var width=600;
         var padding=5;
         var labels=d3.keys(data[3]);
         labels.shift();
@@ -53,6 +53,21 @@
                     .attr("fill","red")
                     .attr("x",function(d,i){return i*width/values.length+padding;})
                     .attr("y",function(d,i){return height-values[i]-padding;});
+        
+        var xScale= d3.scale.ordinal()
+                      .domain(labels)
+                      .rangePoints([padding, width-padding]);            
+        var xAxis= d3.svg.axis()
+                     .scale(xScale)
+                     .orient("bottom")
+                     .ticks(5);
+            svg.append("g")
+               .attr("class","axis")
+               .attr("transform","translate(0,"+(height-padding)+")")
+               .call(xAxis);
+                      
+       
+                    
       });
     </script>
   </body>
