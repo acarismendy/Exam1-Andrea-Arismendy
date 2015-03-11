@@ -25,9 +25,10 @@
     <script type="text/javascript">
       d3.json("https://hivelab.org/static/exam1.json",function(data){
        var labels=d3.keys(data[0]);
+       var values=new Array();
        labels.shift();
        for(var i=0;i<labels.length;i++){
-        var values[i]=d3.values(data[i]);
+        values[i]=d3.values(data[i]);
         
        }
        console.log(values);
