@@ -26,7 +26,8 @@
       d3.json("https://hivelab.org/static/exam1.json",function(data){
        var cumulativeStudents=new Array();
        var values2=new Array();
-       var labels=d3.keys(data);
+       var labels=d3.keys(data[1]);
+       labels.shift();
        var height=440;
        var width=600;
        var padding=30;
