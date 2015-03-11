@@ -37,8 +37,8 @@
                   .data(data)
                   .enter()
                   .append("rect")
-                  .attr("x",function(d,i){return i*100+padding})
-                  .attr("height",function(d){return d.Sophomore})
+                  .attr("x",function(d,i){return i*100+padding;})
+                  .attr("height",function(d){return d.Sophomore;})
                   .attr("y",function(d){return height-d.Sophomore-padding})
                   .attr("fill","black")
                   .attr("width",100);
