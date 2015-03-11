@@ -64,7 +64,7 @@
                     .ticks(10);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate("+(padding+5)+",-"+(padding-5)+")")
+               .attr("transform","translate("+(padding+9)+",-"+(padding-5)+")")
                .call(yAxis);
         var xScale= d3.scale.ordinal()
                       .domain(labels)
@@ -86,7 +86,7 @@
              svg.append("text")
                 .attr("class","name")
                 .attr("text-anchor","end")
-                .attr("y",10)
+                .attr("y",12)
                 .attr("x",-10)
                 .attr("transform","rotate(-90)")
                 .text("Number of IE senior students")
