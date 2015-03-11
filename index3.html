@@ -50,14 +50,14 @@
                   .attr("y",function(d,i){return height-values[i]-padding-cumulativeStudents[i];})
                   .attr("fill","rgb("+i*0,i*100,i*200)
                   .attr("width",width/values.length-padding);
-                //svg.selectAll("text")
-                //    .data(values)
-                //    .enter()
-                //    .append("text")
-                    //.text(function(d,i){return values[i];})
-                    //.attr("fill","red")
-                    //.attr("x",function(d,i){return i*width/values.length+2*padding+9;})
-                    //.attr("y",function(d,i){return height-values[i]*(height-2*padding)/100-padding;-20});
+                svg.selectAll("text")
+                    .data(values)
+                    .enter()
+                    .append("text")
+                    .text(function(d,i){return values[i];})
+                    .attr("fill","red")
+                    .attr("x",function(d,i){return i*width/values.length+2*padding+9;})
+                    .attr("y",function(d,i){return height-values[i]*(height-2*padding)/100-padding-cumulativeStudents[i];});
          
                    cumulativeStudents[1]=cumulativeStudents[1]+values[1];   
                    cumulativeStudents[2]=cumulativeStudents[2]+values[2];   
