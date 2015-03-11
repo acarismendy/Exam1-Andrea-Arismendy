@@ -130,7 +130,7 @@
                .attr("transform","translate("+(padding+9)+",-"+(padding-5)+")")
                .call(yAxis);
         var xScale= d3.scale.ordinal()
-                      .domain(labels)
+                      .domain(labelsFreshman)
                       .rangePoints([padding, 530]);            
         var xAxis= d3.svg.axis()
                      .scale(xScale)
