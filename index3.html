@@ -47,17 +47,10 @@
                   .append("rect")
                   .attr("x",function(d,i){return i*width/values.length+padding+9;})
                   .attr("height",function(d,i){return values[i];})
-                  .attr("y",function(d,i){return height-values[i]-2*padding-cumulativeStudents[i];})
+                  .attr("y",function(d,i){return height-values[i]-padding-cumulativeStudents[i];})
                   .attr("fill","rgb("+(i*0)+","+(i*100)+","+(i*200)+")")
                   .attr("width",width/values.length-padding);
-                svg.selectAll("text")
-                    .data(values)
-                    .enter()
-                    .append("text")
-                    .text(function(d,i){return values[i];})
-                    .attr("fill","red")
-                    .attr("x",function(d,i){return i*width/values.length+2*padding+9;})
-                    .attr("y",function(d,i){return height-values[i]-padding-cumulativeStudents[i];});
+                
          
                    cumulativeStudents[1]=cumulativeStudents[1]+values[1];   
                    cumulativeStudents[2]=cumulativeStudents[2]+values[2];   
@@ -68,7 +61,7 @@
                   
        }
          var yScale=d3.scale.linear();
-                    yScale.domain([100,0])
+                    yScale.domain([Math.max.apply[cumulativestudents[0],cumulativestudents[1],cumulativestudents[2],cumulativestudents[3],cumulativestudents[4]],0])
                           .range([padding,height-padding-5]);
         var yAxis=d3.svg.axis()
                     .scale(yScale)
