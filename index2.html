@@ -40,7 +40,7 @@
                   .data(data)
                   .enter()
                   .append("rect")
-                  .attr("x",function(d,i){return i*100+padding;})
+                  .attr("x",function(d,i){return i*width/values.length+padding;})
                   .attr("height",function(d,i){return values[i];})
                   .attr("y",function(d,i){return height-values[i]-padding})
                   .attr("fill","black")
