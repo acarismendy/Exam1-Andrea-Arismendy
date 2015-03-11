@@ -53,10 +53,21 @@
                     .attr("fill","red")
                     .attr("x",function(d,i){return i*width/values.length+padding;})
                     .attr("y",function(d,i){return height-values[i]-padding;});
-        
+         
+        var yScale=d3.scale.linear();
+                    yScale.domain([100,0])
+              .range([padding,height]);
+        var yAxis=d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left")
+                    .ticks(10);
+            svg.append("g")
+               .attr("class","axis")
+               .attr("transform","translate("+padding+",-"+(padding)+")")
+               .call(yAxis);
         var xScale= d3.scale.ordinal()
                       .domain(labels)
-                      .rangePoints([padding, width-padding]);            
+                      .rangePoints([padding, width]);            
         var xAxis= d3.svg.axis()
                      .scale(xScale)
                      .orient("bottom")
