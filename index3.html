@@ -102,6 +102,18 @@
                 .attr("x",200)
                 .text("University")
                 .style("fill","black"); 
+                
+                //Labels
+                
+                svg.selectAll("#legend")
+                  .data(data)
+                  .enter()
+                  .append("text")
+                  .attr("x",Width-padding -30)
+                  .attr("y",function(d,i){return i*20+padding;})
+                  .text(function(d){return d.Year;})
+                  .attr("fill";"rgb("+(i*0)+","+(i*100)+","+(i*200)+")");
+                  
        
                     
       });
