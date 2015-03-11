@@ -29,11 +29,11 @@
         var padding=5;
         var labels=d3.keys(data);
         var values=d3.values(data);
-        for(var i=0;i<data.length;i++){
-          labels[i]="University"+universities[i];
-          console.log(labels[i]);
+        //for(var i=0;i<data.length;i++){
+          //labels[i]="University"+universities[i];
+         // console.log(labels[i]);
   
-        }
+       // }
         console.log(data[0]);
         
         var svg=d3.select("#barChart").append("svg")
@@ -45,7 +45,7 @@
                   .enter()
                   .append("rect")
                   .attr("x",function(d,i){return i*100+padding;})
-                  .attr("height",function(d){for(var i=0;i<universities.length;i++){return d.labels[i];}})
+                 // .attr("height",function(d){for(var i=0;i<universities.length;i++){return d.labels[i];}})
                   //.attr("y",function(d){if(d.Year==="Senior"){return height-d.Senior-padding}})
                   .attr("fill","black")
                   .attr("width",100);
