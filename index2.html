@@ -41,7 +41,7 @@
                   .data(values)
                   .enter()
                   .append("rect")
-                  .attr("x",function(d,i){return i*width/values.length+padding;})
+                  .attr("x",function(d,i){return i*width/values.length+padding+9;})
                   .attr("height",function(d,i){return values[i]*(height-padding)/100-padding;})
                   .attr("y",function(d,i){return height-values[i]*(height-padding)/100-padding;})
                   .attr("fill","black")
@@ -52,7 +52,7 @@
                     .append("text")
                     .text(function(d,i){return values[i];})
                     .attr("fill","red")
-                    .attr("x",function(d,i){return i*width/values.length+2*padding;})
+                    .attr("x",function(d,i){return i*width/values.length+2*padding+9;})
                     .attr("y",function(d,i){return height-values[i]*(height-2*padding)/100-padding;-20});
          
         var yScale=d3.scale.linear();
@@ -75,7 +75,7 @@
                      .ticks(6);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate(0,"+(height-2*padding)+")")
+               .attr("transform","translate(9,"+(height-2*padding)+")")
                .call(xAxis)
                .selectAll("text")
                 .attr("y",0 )
