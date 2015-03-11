@@ -61,7 +61,7 @@
                   
        }
          var yScale=d3.scale.linear();
-                    yScale.domain([410,0])
+                    yScale.domain([430,0])
                           .range([padding,height-padding-5]);
         var yAxis=d3.svg.axis()
                     .scale(yScale)
@@ -80,7 +80,7 @@
                      .ticks(6);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate(9,"+(height-3*padding)+")")
+               .attr("transform","translate(9,"+(height-padding)+")")
                .call(xAxis)
                .selectAll("text")
                 .attr("y",0 )
