@@ -44,7 +44,7 @@
                   .attr("height",function(d,i){return values[i];})
                   .attr("y",function(d,i){return height-values[i]-padding})
                   .attr("fill","black")
-                  .attr("width",100);
+                  .attr("width",width/values.length-padding);
       });
     </script>
   </body>
