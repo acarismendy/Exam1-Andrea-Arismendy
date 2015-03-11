@@ -11,7 +11,160 @@
   </head>
   
   <body>
+   <!--Header-->
+    <div id="header">
+      <h1>Comparison of the number of IE senior students per university</h1>
+    </div>
   
+    <!--Graph-->
+    <div id="barChart">
+    
+    </div>
+    
+    <script type="text/javascript">
+      d3.json("https://hivelab.org/static/exam1.json",function(data){
+        var height=400;
+        var width=600;
+        var padding=30;
+        console.log(data);
+        var labelsFeshman=d3.keys(data[0]);
+        labels.shift();
+        var valuesFreshman=d3.values(data[0]);
+        values.shift();
+        var labelsSophomore=d3.keys(data[1]);
+        labels.shift();
+        var valuesSophomore=d3.values(data[1]);
+        values.shift();
+        var labelsJunior=d3.keys(data[2]);
+        labels.shift();
+        var valuesJunior=d3.values(data[2]);
+        values.shift();
+        var labelsSenior=d3.keys(data[3]);
+        labels.shift();
+        var valuesSenior=d3.values(data[3]);
+        values.shift();
+        
+        console.log(values);
+        var svg=d3.select("#barChart").append("svg")
+                  .attr("height",height)
+                  .attr("width",width)
+                  .attr("class", "graph");
+               svg.selectAll("rect")
+                  .data(valuesFreshman)
+                  .enter()
+                  .append("rect")
+                  .attr("x",function(d,i){return i*width/valuesFreshman.length+padding+9;})
+                  .attr("height",function(d,i){return valuesFreshman[i]*(height-padding)/100-padding;})
+                  .attr("y",function(d,i){return height-valuesFrehsman[i]*(height-padding)/100-padding;})
+                  .attr("fill","black")
+                  .attr("width",width/valuesFreshman.length-padding);
+                svg.selectAll("text")
+                    .data(valuesFreshman)
+                    .enter()
+                    .append("text")
+                    .text(function(d,i){return valuesFreshman[i];})
+                    .attr("fill","red")
+                    .attr("x",function(d,i){return i*width/valuesFreshman.length+2*padding+9;})
+                    .attr("y",function(d,i){return height-valuesFreshman[i]*(height-2*padding)/100-padding;-20});
+                svg.selectAll("rect")
+                  .data(valuesSophomore)
+                  .enter()
+                  .append("rect")
+                  .attr("x",function(d,i){return i*width/valuesSophomore.length+padding+9;})
+                  .attr("height",function(d,i){return valuesSophomore[i]*(height-padding)/100-padding;})
+                  .attr("y",function(d,i){return height-valuesSophomore[i]*(height-padding)/100-padding;})
+                  .attr("fill","black")
+                  .attr("width",width/valuesSophomore.length-padding);
+                svg.selectAll("text")
+                    .data(valuesSophomore)
+                    .enter()
+                    .append("text")
+                    .text(function(d,i){return valuesSophomore[i];})
+                    .attr("fill","red")
+                    .attr("x",function(d,i){return i*width/valuesSophomore.length+2*padding+9;})
+                    .attr("y",function(d,i){return height-valuesSophomore[i]*(height-2*padding)/100-padding;-20});
+                svg.selectAll("rect")
+                  .data(valuesJunior)
+                  .enter()
+                  .append("rect")
+                  .attr("x",function(d,i){return i*width/valuesJunior.length+padding+9;})
+                  .attr("height",function(d,i){return valuesJunior[i]*(height-padding)/100-padding;})
+                  .attr("y",function(d,i){return height-valuesJunior[i]*(height-padding)/100-padding;})
+                  .attr("fill","black")
+                  .attr("width",width/valuesJunior.length-padding);
+                svg.selectAll("text")
+                    .data(valuesJunior)
+                    .enter()
+                    .append("text")
+                    .text(function(d,i){return valuesJunior[i];})
+                    .attr("fill","red")
+                    .attr("x",function(d,i){return i*width/valuesJunior.length+2*padding+9;})
+                    .attr("y",function(d,i){return height-valuesJunior[i]*(height-2*padding)/100-padding;-20});
+                svg.selectAll("rect")
+                  .data(valuesSenior)
+                  .enter()
+                  .append("rect")
+                  .attr("x",function(d,i){return i*width/valuesSenior.length+padding+9;})
+                  .attr("height",function(d,i){return valuesSenior[i]*(height-padding)/100-padding;})
+                  .attr("y",function(d,i){return height-valuesSenior[i]*(height-padding)/100-padding;})
+                  .attr("fill","black")
+                  .attr("width",width/valuesSenior.length-padding);
+                svg.selectAll("text")
+                    .data(valuesSenior)
+                    .enter()
+                    .append("text")
+                    .text(function(d,i){return valuesSenior[i];})
+                    .attr("fill","red")
+                    .attr("x",function(d,i){return i*width/valuesSenior.length+2*padding+9;})
+                    .attr("y",function(d,i){return height-valuesSenior[i]*(height-2*padding)/100-padding;-20});
+         
+        var yScale=d3.scale.linear();
+                    yScale.domain([100,0])
+                          .range([padding,height-padding-5]);
+        var yAxis=d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left")
+                    .ticks(10);
+            svg.append("g")
+               .attr("class","axis")
+               .attr("transform","translate("+(padding+9)+",-"+(padding-5)+")")
+               .call(yAxis);
+        var xScale= d3.scale.ordinal()
+                      .domain(labels)
+                      .rangePoints([padding, 530]);            
+        var xAxis= d3.svg.axis()
+                     .scale(xScale)
+                     .orient("bottom")
+                     .ticks(6);
+            svg.append("g")
+               .attr("class","axis")
+               .attr("transform","translate(9,"+(height-2*padding)+")")
+               .call(xAxis)
+               .selectAll("text")
+                .attr("y",0 )
+               .attr("transform", "translate(3,2)")
+               .style("text-anchor", "start")
+               .attr("fill","black");
+                      
+             svg.append("text")
+                .attr("class","name")
+                .attr("text-anchor","end")
+                .attr("y",12)
+                .attr("x",-10)
+                .attr("transform","rotate(-90)")
+                .text("Number of IE senior students")
+                .style("fill","black");
+            svg.append("text")
+                .attr("class","name")
+                .attr("text-anchor","end")
+                .attr("y",380)
+                .attr("x",200)
+                .text("University")
+                .style("fill","black"); 
+                    
+      });
+    </script>
+  </body>
   </body>
 
 </html>
