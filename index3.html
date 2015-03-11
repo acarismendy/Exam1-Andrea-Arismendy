@@ -26,6 +26,7 @@
       d3.json("https://hivelab.org/static/exam1.json",function(data){
        var cumulativeStudents=new Array();
        var values=new Array();
+       var values2=new Array();
        var labels=d3.keys(data);
        var height=400;
        var width=600;
@@ -41,13 +42,14 @@
        for(var i=0;i<4;i++){
        	values=d3.values(data[i]);
        	
+       	
                svg.selectAll("rect")
                   .data(values)
                   .enter()
                   .append("rect")
                   .attr("x",function(d,i){return i*width/values.length+padding+9;})
                   .attr("height",function(d,i){return values[i]*(height-padding)/100-padding;})
-                  .attr("y",function(d,i){return height-values[i]*(height-padding)/100-padding;})
+                  .attr("y",function(d,i){return height-values[i]*(height-padding)/100-padding+cumulativeStudents[j];})
                   .attr("fill","black")
                   .attr("width",width/values.length-padding);
                 //svg.selectAll("text")
@@ -59,7 +61,15 @@
                     //.attr("x",function(d,i){return i*width/values.length+2*padding+9;})
                     //.attr("y",function(d,i){return height-values[i]*(height-2*padding)/100-padding;-20});
          
-        var yScale=d3.scale.linear();
+                   cumulativeStudents[1]=cumulativeStudents[1]+values[i][1];   
+                   cumulativeStudents[2]=cumulativeStudents[2]+values[i][2];   
+                	 cumulativeStudents[3]=cumulativeStudents[3]+values[i][3];   
+                	 cumulativeStudents[4]=cumulativeStudents[4]+values[i][4];   
+                	 cumulativeStudents[5]=cumulativeStudents[5]+values[i][5];   
+                   
+                   
+       }
+         var yScale=d3.scale.linear();
                     yScale.domain([100,0])
                           .range([padding,height-padding-5]);
         var yAxis=d3.svg.axis()
@@ -86,11 +96,6 @@
                .attr("transform", "translate(3,2)")
                .style("text-anchor", "start")
                .attr("fill","black");
-                   
-                   cumulativeStudents[i]=cumulativeStudents[i]+values[i];   
-             
-      	
-       }
        svg.append("text")
                 .attr("class","name")
                 .attr("text-anchor","end")
