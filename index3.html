@@ -27,7 +27,7 @@
        var labels=d3.keys(data[0]);
        labels.shift();
        for(var i=0;i<labels.length;i++){
-        labels[i]=d3.keys(data[i]);
+        var values[i]=d3.values(data[i]);
         
        }
        console.log(labels);
