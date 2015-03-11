@@ -67,7 +67,7 @@
                .call(yAxis);
         var xScale= d3.scale.ordinal()
                       .domain(labels)
-                      .rangePoints([padding, width]);            
+                      .rangePoints([padding, width-padding]);            
         var xAxis= d3.svg.axis()
                      .scale(xScale)
                      .orient("bottom")
