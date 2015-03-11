@@ -67,7 +67,7 @@
                .call(yAxis);
         var xScale= d3.scale.ordinal()
                       .domain(labels)
-                      .rangePoints([padding, 570]);            
+                      .rangePoints([padding, 530]);            
         var xAxis= d3.svg.axis()
                      .scale(xScale)
                      .orient("bottom")
@@ -78,7 +78,7 @@
                .call(xAxis)
                .selectAll("text")
                 .attr("y",0 )
-               .attr("transform", "translate(-15,2)")
+               //.attr("transform", "translate(-15,2)")
                .style("text-anchor", "start")
                .attr("fill","black");
                       
