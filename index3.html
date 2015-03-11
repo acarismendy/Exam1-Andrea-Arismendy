@@ -25,7 +25,8 @@
     <script type="text/javascript">
       d3.json("https://hivelab.org/static/exam1.json",function(data){
        var cumulativeStudents=new Array();
-       var values=new Array();
+       var values=d3.values(data);
+       values.shift();
        var values2=new Array();
        var labels=d3.keys(data);
        var height=400;
@@ -41,8 +42,8 @@
        }
        for(var i=0;i<data.length;i++){
          for(var j=0;j<labels.length;j++){
-       	  values=d3.values(data[i]);
-       	  values2[j]=data[i][labels[j]];
+       	  //values=d3.values(data[i]);
+       	  values2[j]=data[i][values[j]];
        	  console.log(values2);
        	
        	
