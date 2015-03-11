@@ -43,7 +43,7 @@
                   .append("rect")
                   .attr("x",function(d,i){return i*width/values.length+padding;})
                   .attr("height",function(d,i){return values[i]*(height-2*padding)/100-padding;})
-                  .attr("y",function(d,i){return height-values[i]*(height-2*padding)/100-padding+5;})
+                  .attr("y",function(d,i){return height-values[i]*(height-2*padding)/100-padding;})
                   .attr("fill","black")
                   .attr("width",width/values.length-padding);
                 svg.selectAll("text")
@@ -64,7 +64,7 @@
                     .ticks(10);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate("+padding+",-"+padding+5+")")
+               .attr("transform","translate("+padding+",-"+padding+")")
                .call(yAxis);
         var xScale= d3.scale.ordinal()
                       .domain(labels)
@@ -75,7 +75,7 @@
                      .ticks(6);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate(0,"+(height-2*padding+5)+")")
+               .attr("transform","translate(0,"+(height-2*padding)+")")
                .call(xAxis)
                .selectAll("text")
                 .attr("y",0 )
