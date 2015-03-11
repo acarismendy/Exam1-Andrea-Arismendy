@@ -69,7 +69,7 @@
                     .ticks(10);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate("+(padding+9)+",-"+(padding-5)+")")
+               .attr("transform","translate("+(padding+30)+",-"+(padding-5)+")")
                .call(yAxis);
         var xScale= d3.scale.ordinal()
                       .domain(labels)
@@ -80,7 +80,7 @@
                      .ticks(6);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate(9,"+(height-2*padding)+")")
+               .attr("transform","translate(30,"+(height-2*padding)+")")
                .call(xAxis)
                .selectAll("text")
                 .attr("y",0 )
