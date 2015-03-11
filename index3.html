@@ -55,7 +55,7 @@
                   .append("rect")
                   .attr("x",function(d,i){return i*width/valuesFreshman.length+padding+9;})
                   .attr("height",function(d,i){return valuesFreshman[i]*(height-padding)/100-padding;})
-                  .attr("y",function(d,i){return height-valuesFrehsman[i]*(height-padding)/100-padding;})
+                  .attr("y",function(d,i){return height-valuesFreshman[i]*(height-padding)/100-padding;})
                   .attr("fill","black")
                   .attr("width",width/valuesFreshman.length-padding);
                 svg.selectAll("text")
