@@ -39,8 +39,11 @@
        for(var i=0;i<5;i++){
        	cumulativeStudents[i]=0;
        }
-       for(var i=0;i<4;i++){
-       	values=d3.values(data[i]);
+       for(var i=0;i<data.length;i++){
+         for(var j=0;j<labels.length;j++){
+       	  values=d3.values(data[i]);
+       	  values2[j]=data[i][labels[j]];
+       	  console.log(values2);
        	
        	
                svg.selectAll("rect")
@@ -67,7 +70,7 @@
                 	 cumulativeStudents[4]=cumulativeStudents[4]+values[i][4];   
                 	 cumulativeStudents[5]=cumulativeStudents[5]+values[i][5];   
                    
-                   
+         }           
        }
          var yScale=d3.scale.linear();
                     yScale.domain([100,0])
