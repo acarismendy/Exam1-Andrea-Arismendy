@@ -53,7 +53,7 @@
                     .text(function(d,i){return values[i];})
                     .attr("fill","red")
                     .attr("x",function(d,i){return i*width/values.length+2*padding;})
-                    .attr("y",function(d,i){returnheight-values[i]*(height-2*padding)/100-padding;-20});
+                    .attr("y",function(d,i){return height-values[i]*(height-2*padding)/100-padding;-20});
          
         var yScale=d3.scale.linear();
                     yScale.domain([100,0])
