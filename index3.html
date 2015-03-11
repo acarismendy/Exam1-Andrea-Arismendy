@@ -41,12 +41,6 @@
        	cumulativeStudents[i]=0;
        }
        for(var i=0;i<data.length;i++){
-         for(var j=0;j<labels.length;j++){
-       	  //values=d3.values(data[i]);
-       	  values2[j]=data[i][values[j]];
-       	  console.log(values2);
-       	
-       	
                svg.selectAll("rect")
                   .data(values)
                   .enter()
@@ -70,8 +64,8 @@
                 	 cumulativeStudents[3]=cumulativeStudents[3]+values[i][3];   
                 	 cumulativeStudents[4]=cumulativeStudents[4]+values[i][4];   
                 	 cumulativeStudents[5]=cumulativeStudents[5]+values[i][5];   
-                   
-         }           
+                   console.log(cumulativeStudents);
+                  
        }
          var yScale=d3.scale.linear();
                     yScale.domain([100,0])
