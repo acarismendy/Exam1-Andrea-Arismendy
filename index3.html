@@ -41,7 +41,7 @@
        for(var i=0;i<data.length;i++){
               var values=d3.values(data[i]);
                 values.shift();
-               svg.selectAll("rect")
+               svg.selectAll("#rect"+data[i].Year)
                   .data(values)
                   .enter()
                   .append("rect")
