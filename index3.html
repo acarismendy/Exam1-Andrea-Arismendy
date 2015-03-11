@@ -61,15 +61,15 @@
                   
        }
          var yScale=d3.scale.linear();
-                    yScale.domain([450,0])
-                          .range([padding,height-padding-5]);
+                    yScale.domain([410,0])
+                          .range([padding,height-5]);
         var yAxis=d3.svg.axis()
                     .scale(yScale)
                     .orient("left")
                     .ticks(10);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate("+(padding+9)+",-"+(padding-30)+")")
+               .attr("transform","translate("+(padding+9)+",-"+(padding-35)+")")
                .call(yAxis);
         var xScale= d3.scale.ordinal()
                       .domain(labels)
