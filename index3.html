@@ -26,15 +26,24 @@
       d3.json("https://hivelab.org/static/exam1.json",function(data){
        var labels=d3.keys(data[0]);
        var values=new Array();
+       var values2=new Array();
        labels.shift();
        for(var i=0;i<labels.length;i++){
         values[i]=d3.values(data[i]);
         
        }
        console.log(values);
-       var stack=d3.layout.stack();
-       stack(values);
-       console.log(values);
+       //var stack=d3.layout.stack();
+       //stack(values);
+       for(var i=0;i<labels.length;i++){
+         values2[1][i]=values[i][1];
+         values2[2][i]=values[i][2];
+         values2[3][i]=values[i][3];
+         values2[4][i]=values[i][4];
+         values2[5][i]=values[i][5];
+         
+       }
+       console.log(values2);
                     
       });
     </script>
