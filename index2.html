@@ -41,7 +41,7 @@
                   .enter()
                   .append("rect")
                   .attr("x",function(d,i){return i*width/values.length+padding;})
-                  .attr("height",function(d,i){return values[i];})
+                  .attr("height",function(d,i){return values[i]*(height-padding)/100;})
                   .attr("y",function(d,i){return height-values[i]-padding;})
                   .attr("fill","black")
                   .attr("width",width/values.length-padding);
@@ -56,7 +56,7 @@
          
         var yScale=d3.scale.linear();
                     yScale.domain([100,0])
-                          .range([padding,height]);
+                          .range([padding,height-padding]);
         var yAxis=d3.svg.axis()
                     .scale(yScale)
                     .orient("left")
