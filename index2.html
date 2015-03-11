@@ -74,11 +74,11 @@
                      .ticks(5);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate(0,"+(height-padding)+")")
+               .attr("transform","translate(0,"+(height-padding)+10")")
                .call(xAxis)
                .selectAll("text")
-                .attr("y", -10)
-               .attr("transform", "translate(3,2) rotate(90)")
+                .attr("y",0 )
+               .attr("transform", "translate(3,2)")
                .style("text-anchor", "start")
                .attr("fill","black");
                       
