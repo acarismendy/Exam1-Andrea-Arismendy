@@ -29,21 +29,21 @@
         var padding=30;
         console.log(data);
         var labelsFeshman=d3.keys(data[0]);
-        labels.shift();
+        labelsFreshman.shift();
         var valuesFreshman=d3.values(data[0]);
-        values.shift();
+        valuesFreshman.shift();
         var labelsSophomore=d3.keys(data[1]);
-        labels.shift();
+        labelsSophomore.shift();
         var valuesSophomore=d3.values(data[1]);
-        values.shift();
+        valuesSophomore.shift();
         var labelsJunior=d3.keys(data[2]);
-        labels.shift();
+        labelsJunior.shift();
         var valuesJunior=d3.values(data[2]);
-        values.shift();
+        valuesJunior.shift();
         var labelsSenior=d3.keys(data[3]);
-        labels.shift();
+        labelsSenior.shift();
         var valuesSenior=d3.values(data[3]);
-        values.shift();
+        valuesSenior.shift();
         
         console.log(values);
         var svg=d3.select("#barChart").append("svg")
