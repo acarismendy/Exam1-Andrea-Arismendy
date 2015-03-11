@@ -64,7 +64,7 @@
                     .ticks(10);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate("+10+padding+",-"+(padding-5)+")")
+               .attr("transform","translate("+(padding-5)+",-"+(padding-5)+")")
                .call(yAxis);
         var xScale= d3.scale.ordinal()
                       .domain(labels)
