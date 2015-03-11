@@ -24,28 +24,17 @@
     
     <script type="text/javascript">
       d3.json("https://hivelab.org/static/exam1.json",function(data){
-       var labels=d3.keys(data[0]);
+       var cumulativeStudents=new Array();
        var values=new Array();
-       var values2=new Array();
+       var labels=d3.keys(data);
        labels.shift();
        for(var i=0;i<labels.length;i++){
-        values[i]=d3.values(data[i]);
-        
+       	cumulative[i]=0;
        }
-       console.log(values);
-       //var stack=d3.layout.stack();
-       //stack(values);
        for(var i=0;i<labels.length;i++){
-         values2[1,i]=values[i,1];
-         values2[2,i]=values[i,2];
-         values2[3,i]=values[i,3];
-         values2[4,i]=values[i,4];
-         values2[5,i]=values[i,5];
-         
+       	values=d3.values(data[i]);
+      	
        }
-       values2[1,2]="A";
-       values2[1,1]="b";
-       console.log(values[3][1]);
        
                     
       });
