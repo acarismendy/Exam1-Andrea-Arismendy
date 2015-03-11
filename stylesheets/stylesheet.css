@@ -1,1 +1,11 @@
-
+.axis path, .axis line{
+  fill:none;
+  stroke:red;
+}
+.axis text{
+  font-family:sans-serif;
+  color:black;
+  font-size:10px;
+}
+.graph {
+  text-align:center;
