@@ -27,14 +27,15 @@
         var height=400;
         var width=600;
         var padding=5;
-        var labels=d3.keys(data);
-        var values=d3.values(data);
+        var labels=d3.keys(data[3]);
+        var values=d3.values(data[3]);
         //for(var i=0;i<data.length;i++){
           //labels[i]="University"+universities[i];
          // console.log(labels[i]);
   
        // }
-        console.log(data[3]);
+        console.log(labels);
+        console.log(values);
         
         var svg=d3.select("#barChart").append("svg")
                   .attr("height",height)
