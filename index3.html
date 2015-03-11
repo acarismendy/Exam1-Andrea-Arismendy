@@ -111,10 +111,32 @@
                   .append("text")
                   .attr("x",padding -30)
                   .attr("y",function(d,i){return i*20+padding;})
-                  .text(function(d){return d.Year;
-                     console.log(d.Year);
-                  })
-                  .attr("fill","rgb("+(i*0)+","+(i*100)+","+(i*200)+")");
+                  .text("Freshman")
+                  .attr("fill","rgb(0,0,0)");
+                  svg.selectAll("text")
+                  .data(data)
+                  .enter()
+                  .append("text")
+                  .attr("x",padding -30)
+                  .attr("y",function(d,i){return i*20+padding;})
+                  .text("Sophomore")
+                  .attr("fill","rgb(0,200,400)");
+                  svg.selectAll("text")
+                  .data(data)
+                  .enter()
+                  .append("text")
+                  .attr("x",padding -30)
+                  .attr("y",function(d,i){return i*20+padding;})
+                  .text("Junior")
+                  .attr("fill","rgb(0,300,600)");
+                  svg.selectAll("text")
+                  .data(data)
+                  .enter()
+                  .append("text")
+                  .attr("x",padding -30)
+                  .attr("y",function(d,i){return i*20+padding;})
+                  .text("Senior")
+                  .attr("fill","rgb(0,400,800)");
                  
                   
        
