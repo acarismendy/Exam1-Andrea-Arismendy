@@ -40,7 +40,7 @@
                   .data(values)
                   .enter()
                   .append("rect")
-                  .attr("x",function(d,i){return i*width/values.length-padding;})
+                  .attr("x",function(d,i){return i*width/values.length+padding;})
                   .attr("height",function(d,i){return values[i];})
                   .attr("y",function(d,i){return height-values[i]-padding;})
                   .attr("fill","black")
@@ -63,7 +63,7 @@
                     .ticks(10);
             svg.append("g")
                .attr("class","axis")
-               .attr("transform","translate("+padding+",-"+(padding)+")")
+               .attr("transform","translate("+10+padding+",-"+(padding)+")")
                .call(yAxis);
         var xScale= d3.scale.ordinal()
                       .domain(labels)
