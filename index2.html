@@ -26,7 +26,7 @@
       d3.json("data.json",function(data){
         var height=400;
         var width=600;
-        var padding=5;
+        var padding=15;
         var labels=d3.keys(data[3]);
         labels.shift();
         var values=d3.values(data[3]);
@@ -42,7 +42,7 @@
                   .append("rect")
                   .attr("x",function(d,i){return i*width/values.length+padding;})
                   .attr("height",function(d,i){return values[i];})
-                  .attr("y",function(d,i){return height-values[i]-2*padding;})
+                  .attr("y",function(d,i){return height-values[i]-padding;})
                   .attr("fill","black")
                   .attr("width",width/values.length-padding);
                 svg.selectAll("text")
