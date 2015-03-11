@@ -111,8 +111,11 @@
                   .append("text")
                   .attr("x",padding -30)
                   .attr("y",function(d,i){return i*20+padding;})
-                  .text(function(d){return d.Year;})
+                  .text(function(d){return d.Year;
+                     console.log(d.Year);
+                  })
                   .attr("fill","rgb("+(i*0)+","+(i*100)+","+(i*200)+")");
+                 
                   
        
                     
