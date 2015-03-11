@@ -83,7 +83,21 @@
                .style("text-anchor", "start")
                .attr("fill","black");
                       
-       
+             svg.append("text")
+                .attr("class","name")
+                .attr("text-anchor","end")
+                .attr("y",35)
+                .attr("x",-50)
+                .attr("transform","rotate(-90)")
+                .text("Number of IE senior students")
+                .style("fill","black");
+            svg.append("text")
+                .attr("class","name")
+                .attr("text-anchor","end")
+                .attr("y",380)
+                .attr("x",200)
+                .text("University")
+                .style("fill","black"); 
                     
       });
     </script>
