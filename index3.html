@@ -36,7 +36,7 @@
                   .attr("width",width)
                   .attr("class", "graph");
        for(var i=0;i<labels.length;i++){
-       	cumulative[i]=0;
+       	cumulativeStudents[i]=0;
        }
        for(var i=0;i<labels.length;i++){
        	values=d3.values(data[i]);
@@ -87,7 +87,7 @@
                .style("text-anchor", "start")
                .attr("fill","black");
                    
-                   cumulative[i]=cumulative+values[i];   
+                   cumulativeStudents[i]=cumulativeStudents[i]+values[i];   
              
       	
        }
