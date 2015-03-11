@@ -37,7 +37,7 @@
                   .attr("width",width)
                   .attr("class", "graph");
                svg.selectAll("rect")
-                  .data(data)
+                  .data(values)
                   .enter()
                   .append("rect")
                   .attr("x",function(d,i){return i*width/values.length+padding;})
