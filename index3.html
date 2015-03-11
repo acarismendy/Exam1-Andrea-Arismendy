@@ -47,7 +47,7 @@
                   .append("rect")
                   .attr("x",function(d,i){return i*width/values.length+padding+9;})
                   .attr("height",function(d,i){return values[i]-padding;})
-                  .attr("y",function(d,i){return height-values[i]-padding+cumulativeStudents[i];})
+                  .attr("y",function(d,i){return height-values[i]-padding-cumulativeStudents[i];})
                   .attr("fill","rgb("+i*0,i*100,i*200)
                   .attr("width",width/values.length-padding);
                 //svg.selectAll("text")
