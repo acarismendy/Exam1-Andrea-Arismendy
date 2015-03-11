@@ -46,7 +46,7 @@
                   .attr("fill","black")
                   .attr("width",width/values.length-padding);
                 svg.selectAll("text")
-                    .data(data)
+                    .data(values)
                     .enter()
                     .append("text")
                     .text(function(d,i){return values[i];})
