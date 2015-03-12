@@ -50,14 +50,7 @@
                   .attr("y",function(d,i){return height-values[i]-padding-cumulativeStudents[i];})
                   .attr("fill","rgb("+(i*0)+","+(i*100)+","+(i*200)+")")
                   .attr("width",width/values.length-padding);
-               svg.selectAll("text")
-                  .data(data)
-                  .enter()
-                  .append("text")
-                  .text(function(d){return d.Year;})
-            .attr("x",function(d,i){return i*19+padding;})
-            .attr("y",function(d){return height-values[i]-padding-cumulativeStudents[i]+12;})
-            .attr("fill","white");
+               
                 
          
                    cumulativeStudents[1]=cumulativeStudents[1]+values[1];   
@@ -118,7 +111,7 @@
                   .enter()
                   .append("text")
                   .attr("x",padding -30)
-                  .attr("y",function(d,i){return padding;})
+                  .attr("y",function(d,i){return height-padding;})
                   .text("Freshman")
                   .attr("fill","rgb(0,0,0)");
                   svg.selectAll("text")
