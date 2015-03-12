@@ -108,9 +108,32 @@
                 .attr("class","legend")
                 .attr("text-anchor","end")
                 .attr("y",10)
-                .attr("x",500)
+                .attr("x",100)
                 .text("Freshman")
-                .style("fill","black"); 
+                .style("fill","rgb(0,0,0)"); 
+                
+                 svg.append("text")
+                .attr("class","legend")
+                .attr("text-anchor","end")
+                .attr("y",10)
+                .attr("x",200)
+                .text("Sophomore")
+                .style("fill","rgb(0,100,200)"); 
+                
+                 svg.append("text")
+                .attr("class","legend")
+                .attr("text-anchor","end")
+                .attr("y",10)
+                .attr("x",300)
+                .text("Junior")
+                .style("fill","rgb(0,200,400)"); 
+                 svg.append("text")
+                .attr("class","legend")
+                .attr("text-anchor","end")
+                .attr("y",10)
+                .attr("x",400)
+                .text("Senior")
+                .style("fill","rgb(0,300,600)"); 
                 //Labels
                 
                 svg.selectAll("text")
