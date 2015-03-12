@@ -6,12 +6,150 @@
     <meta name="description" content="Exam1-andrea-arismendy : ">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <script type="text/javascript" src="javascripts/d3.js"></script>
 
     <title>Exam1-andrea-arismendy</title>
   </head>
   
   <body>
+   <!--Header-->
+    <div id="header">
+      <h1>Stacked</h1>
+    </div>
   
+    <!--Graph-->
+    <div id="barChart">
+    
+    </div>
+    
+    <script type="text/javascript">
+      d3.json("https://hivelab.org/static/exam1.json",function(data){
+       var cumulativeStudents=new Array();
+       var values2=new Array();
+       var labels=d3.keys(data[1]);
+       var height=440;
+       var width=600;
+       var padding=30;
+       labels.shift();
+       var svg=d3.select("#barChart").append("svg")
+                  .attr("height",height)
+                  .attr("width",width)
+                  .attr("class", "graph");
+       for(var i=0;i<5;i++){
+       	cumulativeStudents[i]=0;
+       }
+       for(var i=0;i<data.length;i++){
+              var values=d3.values(data[i]);
+                values.shift();
+               svg.selectAll("#rect"+data[i].Year)
+                  .data(values)
+                  .enter()
+                  .append("rect")
+                  .attr("x",function(d,i){return i*width/values.length+padding+9;})
+                  .attr("height",function(d,i){return values[i];})
+                  .attr("y",function(d,i){return height-values[i]-padding-cumulativeStudents[i];})
+                  .attr("fill","rgb("+(i*0)+","+(i*100)+","+(i*200)+")")
+                  .attr("width",width/values.length-padding);
+                
+         
+                   cumulativeStudents[1]=cumulativeStudents[1]+values[1];   
+                   cumulativeStudents[2]=cumulativeStudents[2]+values[2];   
+                	 cumulativeStudents[3]=cumulativeStudents[3]+values[3];   
+                	 cumulativeStudents[4]=cumulativeStudents[4]+values[4];   
+                	 cumulativeStudents[0]=cumulativeStudents[0]+values[0];   
+                   console.log(cumulativeStudents);
+                  
+       }
+         var yScale=d3.scale.linear();
+                    yScale.domain([410,0])
+                          .range([padding,height-5]);
+        var yAxis=d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left")
+                    .ticks(10);
+            svg.append("g")
+               .attr("class","axis")
+               .attr("transform","translate("+(padding+9)+",-"+(padding-8)+")")
+               .call(yAxis);
+        var xScale= d3.scale.ordinal()
+                      .domain(labels)
+                      .rangePoints([padding, 530]);            
+        var xAxis= d3.svg.axis()
+                     .scale(xScale)
+                     .orient("bottom")
+                     .ticks(6);
+            svg.append("g")
+               .attr("class","axis")
+               .attr("transform","translate(9,"+(height-padding)+")")
+               .call(xAxis)
+               .selectAll("text")
+                .attr("y",0 )
+               .attr("transform", "translate(3,2)")
+               .style("text-anchor", "start")
+               .attr("fill","black");
+       svg.append("text")
+                .attr("class","name")
+                .attr("text-anchor","end")
+                .attr("y",12)
+                .attr("x",-10)
+                .attr("transform","rotate(-90)")
+                .text("Number of IE students")
+                .style("fill","black");
+            svg.append("text")
+                .attr("class","name")
+                .attr("text-anchor","end")
+                .attr("y",430)
+                .attr("x",200)
+                .text("University")
+                .style("fill","black"); 
+                
+                //Labels
+                
+                svg.selectAll("text")
+                  .data(data)
+                  .enter()
+                  .append("text")
+                  .attr("x",padding -30)
+                  .attr("y",function(d,i){return padding;})
+                  .text("Freshman")
+                  .attr("fill","rgb(0,0,0)");
+                  svg.selectAll("text")
+                  .data(data)
+                  .enter()
+                  .append("text")
+                  .attr("x",padding -60)
+                  .attr("y",function(d,i){return padding;})
+                  .text("Sophomore")
+                  .attr("fill","rgb(0,200,400)");
+                  svg.selectAll("text")
+                  .data(data)
+                  .enter()
+                  .append("text")
+                  .attr("x",padding -90)
+                  .attr("y",function(d,i){return padding;})
+                  .text("Junior")
+                  .attr("fill","rgb(0,300,600)");
+                  svg.selectAll("text")
+                  .data(data)
+                  .enter()
+                  .append("text")
+                  .attr("x",padding -120)
+                  .attr("y",function(d,i){return padding;})
+                  .text("Senior")
+                  .attr("fill","rgb(0,400,800)");
+        //Interactivity         
+       d3.selectAll("rect")
+        .on("click",function(){
+          var year=d3.this.attr("class")
+          for(var i=0;i<labels.length;i++){
+            
+          }
+        })
+        
+      });
+     
+    </script>
+  </body>
   </body>
 
 </html>
