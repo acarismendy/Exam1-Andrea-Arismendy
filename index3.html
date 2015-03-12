@@ -104,10 +104,11 @@
                 .text("University")
                 .style("fill","black"); 
                  
+                  //Labels
                  svg.append("text")
                 .attr("class","legend")
                 .attr("text-anchor","end")
-                .attr("y",10)
+                .attr("y",5)
                 .attr("x",100)
                 .text("Freshman")
                 .style("fill","rgb(0,0,0)"); 
@@ -115,7 +116,7 @@
                  svg.append("text")
                 .attr("class","legend")
                 .attr("text-anchor","end")
-                .attr("y",10)
+                .attr("y",5)
                 .attr("x",200)
                 .text("Sophomore")
                 .style("fill","rgb(0,100,200)"); 
@@ -123,51 +124,20 @@
                  svg.append("text")
                 .attr("class","legend")
                 .attr("text-anchor","end")
-                .attr("y",10)
+                .attr("y",5)
                 .attr("x",300)
                 .text("Junior")
                 .style("fill","rgb(0,200,400)"); 
                  svg.append("text")
                 .attr("class","legend")
                 .attr("text-anchor","end")
-                .attr("y",10)
+                .attr("y",5)
                 .attr("x",400)
                 .text("Senior")
                 .style("fill","rgb(0,300,600)"); 
-                //Labels
+               
                 
-                svg.selectAll("text")
-                  .data(data)
-                  .enter()
-                  .append("text")
-                  .attr("x",padding -30)
-                  .attr("y",function(d,i){return height-padding;})
-                  .text("Freshman")
-                  .attr("fill","rgb(0,0,0)");
-                  svg.selectAll("text")
-                  .data(data)
-                  .enter()
-                  .append("text")
-                  .attr("x",padding -60)
-                  .attr("y",function(d,i){return padding;})
-                  .text("Sophomore")
-                  .attr("fill","rgb(0,200,400)");
-                  svg.selectAll("text")
-                  .data(data)
-                  .enter()
-                  .append("text")
-                  .attr("x",padding -90)
-                  .attr("y",function(d,i){return padding;})
-                  .text("Junior")
-                  .attr("fill","rgb(0,300,600)");
-                  svg.selectAll("text")
-                  .data(data)
-                  .enter()
-                  .append("text")
-                  .attr("x",padding -120)
-                  .attr("y",function(d,i){return padding;})
-                  .text("Senior")
-                  .attr("fill","rgb(0,400,800)");
+               
                  
                   
        
